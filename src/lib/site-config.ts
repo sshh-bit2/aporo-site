@@ -18,7 +18,7 @@ export const siteConfig = {
   hours: "完全予約制(施術時間 10:00〜19:00)", // (仮)
   reviewScore: "4.8", // (仮) 実際の口コミ件数・評点が確定次第更新してください
   yearsOfExperience: "20",
-  siteUrl: "https://aporo-site.vercel.app", // Vercelデプロイ後のURLに差し替えてください
+  siteUrl: "https://aporo-site.vercel.app", // 実際のVercelデプロイURL(独自ドメイン設定時はそちらに差し替えてください)
   prices: {
     trialLabel: "初回体験",
     trialPrice: 5500, // (仮) 本書site-design-spec.mdの仮価格
