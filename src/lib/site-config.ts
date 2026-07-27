@@ -27,6 +27,15 @@ export const siteConfig = {
   },
 } as const;
 
+export const staff = {
+  name: "院長(仮)", // (仮) 施術者名に差し替えてください
+  title: "はり師・きゅう師",
+  yearsOfExperience: "20",
+  bio:
+    "20年以上にわたり、美容鍼灸・保険施術・整体マッサージを通じて幅広い症状と向き合ってきました。" +
+    "お一人おひとりの体質やお悩みに合わせ、無理のないペースで変化を実感していただける施術を心がけています。",
+} as const;
+
 export const menuItems = [
   {
     slug: "beauty-acupuncture",
@@ -34,6 +43,7 @@ export const menuItems = [
     title: "美容鍼灸",
     description: "たるみ・くすみ・小顔にアプローチ",
     featured: true,
+    imageKey: "facialTreatment",
   },
   {
     slug: "seitai",
@@ -41,6 +51,7 @@ export const menuItems = [
     title: "整体マッサージ",
     description: "肩こり・腰痛などの慢性症状に",
     featured: false,
+    imageKey: "bodyMassage",
   },
   {
     slug: "ashitsubo",
@@ -48,6 +59,7 @@ export const menuItems = [
     title: "足つぼ整体マッサージ",
     description: "むくみ・冷えのケアに",
     featured: false,
+    imageKey: "footMassage",
   },
   {
     slug: "kotsuban",
@@ -55,5 +67,31 @@ export const menuItems = [
     title: "交通事故施術",
     description: "保険施術(捻挫・挫傷)に対応",
     featured: false,
+    imageKey: null,
+  },
+] as const;
+
+/** サンプルのお客様の声。掲載許可取得後、実際の声へ差し替えてください。 */
+export const testimonials = [
+  {
+    age: "40代",
+    text:
+      "鏡を見るたびに気になっていたほうれい線が、施術を重ねるうちに気にならなくなってきました。" +
+      "針は痛みもほとんどなく、むしろ終わったあとの肌の血色の良さに驚きます。",
+    initials: "A.Kさん",
+  },
+  {
+    age: "50代",
+    text:
+      "更年期に入ってから肌の調子が不安定でしたが、施術を続けるうちに顔色が明るくなったと言われるように。" +
+      "自分へのご褒美時間としても続けています。",
+    initials: "M.Sさん",
+  },
+  {
+    age: "30代",
+    text:
+      "美容鍼が初めてで不安でしたが、カウンセリングで丁寧に説明していただき安心して受けられました。" +
+      "翌朝の肌の調子が違うのを実感しています。",
+    initials: "Y.Tさん",
   },
 ] as const;

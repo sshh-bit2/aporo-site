@@ -1,8 +1,11 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import CtaButton from "@/components/CtaButton";
 import FaceIllustration from "@/components/FaceIllustration";
 import BeforeAfterStat from "@/components/BeforeAfterStat";
-import { siteConfig } from "@/lib/site-config";
+import TestimonialGrid from "@/components/TestimonialGrid";
+import { siteConfig, testimonials } from "@/lib/site-config";
+import { placeholderImages } from "@/lib/placeholder-images";
 
 export const metadata: Metadata = {
   title: "美容鍼灸",
@@ -73,8 +76,17 @@ export default function BeautyAcupuncturePage() {
               <CtaButton />
             </div>
           </div>
-          <div className="order-1 mx-auto w-full max-w-xs md:order-2 md:max-w-sm">
-            <FaceIllustration className="w-full" />
+          <div className="order-1 mx-auto w-full max-w-sm md:order-2 md:max-w-md">
+            <div className="overflow-hidden rounded-3xl shadow-xl shadow-rose-900/10">
+              <Image
+                src={placeholderImages.beautyHero.src}
+                alt={placeholderImages.beautyHero.alt}
+                width={1200}
+                height={1000}
+                priority
+                className="aspect-[6/5] w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -96,15 +108,32 @@ export default function BeautyAcupuncturePage() {
 
       {/* 安心材料 */}
       <section className="bg-stone-50 py-16">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-          <h2 className="font-serif text-2xl font-bold text-stone-900">
-            痛みが心配な方へ
-          </h2>
-          <p className="mt-4 text-stone-600">
-            使用する針は髪の毛程の細さ。刺激は最小限に抑えていますので、
-            鍼施術が初めての方やお痛みが心配な方も安心して受けていただけます。
-          </p>
+        <div className="mx-auto grid max-w-4xl items-center gap-8 px-4 sm:px-6 md:grid-cols-[160px_1fr]">
+          <FaceIllustration className="mx-auto w-32 md:w-full" />
+          <div className="text-center md:text-left">
+            <h2 className="font-serif text-2xl font-bold text-stone-900">
+              痛みが心配な方へ
+            </h2>
+            <p className="mt-4 text-stone-600">
+              使用する針は髪の毛程の細さ。刺激は最小限に抑えていますので、
+              鍼施術が初めての方やお痛みが心配な方も安心して受けていただけます。
+            </p>
+          </div>
         </div>
+      </section>
+
+      {/* 施術風景バナー */}
+      <section className="relative h-56 w-full overflow-hidden sm:h-72">
+        <Image
+          src={placeholderImages.facialTreatment.src}
+          alt={placeholderImages.facialTreatment.alt}
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-900/50 to-transparent" />
+        <p className="absolute bottom-4 left-4 text-sm text-white/90 sm:left-6">
+          施術風景イメージ(ダミー写真)
+        </p>
       </section>
 
       {/* 施術の流れ */}
@@ -143,19 +172,13 @@ export default function BeautyAcupuncturePage() {
       </section>
 
       {/* お客様の声 */}
-      <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+      <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
         <h2 className="text-center font-serif text-2xl font-bold text-stone-900">
           お客様の声
         </h2>
-        <blockquote className="mt-8 rounded-2xl border border-stone-200 bg-white p-8">
-          <p className="text-stone-700">
-            「更年期に入ってから肌の調子が不安定でしたが、施術を続けるうちに顔色が明るくなったと言われるように。
-            自分へのご褒美時間としても続けています。」
-          </p>
-          <footer className="mt-4 text-sm text-stone-400">
-            50代・{siteConfig.areaName}在住 M.Sさん(サンプル・掲載許可取得後に実際のお声へ差し替え予定)
-          </footer>
-        </blockquote>
+        <div className="mt-8">
+          <TestimonialGrid items={testimonials} />
+        </div>
       </section>
 
       {/* 料金表 */}

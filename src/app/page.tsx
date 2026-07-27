@@ -1,8 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import CtaButton from "@/components/CtaButton";
-import FaceIllustration from "@/components/FaceIllustration";
+import StaffIntro from "@/components/StaffIntro";
+import TestimonialGrid from "@/components/TestimonialGrid";
 import { menuItems, siteConfig } from "@/lib/site-config";
+import { placeholderImages } from "@/lib/placeholder-images";
 
 export const metadata: Metadata = {
   title: `${siteConfig.businessName} | ${siteConfig.areaName}の美容鍼灸・鍼灸院`,
@@ -38,8 +41,17 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="order-1 mx-auto w-full max-w-xs md:order-2 md:max-w-sm">
-            <FaceIllustration className="w-full" />
+          <div className="order-1 mx-auto w-full max-w-sm md:order-2 md:max-w-md">
+            <div className="overflow-hidden rounded-3xl shadow-xl shadow-rose-900/10">
+              <Image
+                src={placeholderImages.homeHero.src}
+                alt={placeholderImages.homeHero.alt}
+                width={1200}
+                height={1000}
+                priority
+                className="aspect-[6/5] w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -72,80 +84,120 @@ export default function Home() {
           メニュー
         </h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {menuItems.map((item) =>
-            item.href ? (
+          {menuItems.map((item) => {
+            const image = item.imageKey
+              ? placeholderImages[item.imageKey as keyof typeof placeholderImages]
+              : null;
+
+            return item.href ? (
               <Link
                 key={item.slug}
                 href={item.href}
-                className="group relative overflow-hidden rounded-2xl border-2 border-rose-800 bg-rose-800 p-6 text-white shadow-lg shadow-rose-900/20 transition hover:bg-rose-900"
+                className="group relative overflow-hidden rounded-2xl border-2 border-rose-800 bg-rose-800 text-white shadow-lg shadow-rose-900/20 transition hover:bg-rose-900"
               >
-                <span className="mb-2 inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-semibold">
-                  注力メニュー
-                </span>
-                <h3 className="font-serif text-xl font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm text-rose-50">{item.description}</p>
-                <span className="mt-4 inline-flex items-center text-sm font-semibold underline underline-offset-4">
-                  詳しく見る →
-                </span>
+                {image && (
+                  <div className="relative h-40 w-full overflow-hidden">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover transition duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+                <div className="p-6">
+                  <span className="mb-2 inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-semibold">
+                    注力メニュー
+                  </span>
+                  <h3 className="font-serif text-xl font-bold">{item.title}</h3>
+                  <p className="mt-2 text-sm text-rose-50">{item.description}</p>
+                  <span className="mt-4 inline-flex items-center text-sm font-semibold underline underline-offset-4">
+                    詳しく見る →
+                  </span>
+                </div>
               </Link>
             ) : (
               <div
                 key={item.slug}
-                className="rounded-2xl border border-stone-200 bg-white p-6"
+                className="overflow-hidden rounded-2xl border border-stone-200 bg-white"
               >
-                <h3 className="font-serif text-lg font-bold text-stone-900">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm text-stone-600">{item.description}</p>
-                <a
-                  href={siteConfig.lineUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center text-sm font-semibold text-rose-800 underline underline-offset-4"
-                >
-                  詳しくはお問い合わせください →
-                </a>
+                {image && (
+                  <div className="relative h-32 w-full overflow-hidden">
+                    <Image src={image.src} alt={image.alt} fill className="object-cover" />
+                  </div>
+                )}
+                <div className="p-6">
+                  <h3 className="font-serif text-lg font-bold text-stone-900">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-stone-600">{item.description}</p>
+                  <a
+                    href={siteConfig.lineUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center text-sm font-semibold text-rose-800 underline underline-offset-4"
+                  >
+                    詳しくはお問い合わせください →
+                  </a>
+                </div>
               </div>
-            )
-          )}
+            );
+          })}
+        </div>
+      </section>
+
+      {/* スタッフ紹介 */}
+      <section className="bg-stone-50 py-16">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <h2 className="text-center font-serif text-2xl font-bold text-stone-900">
+            施術者紹介
+          </h2>
+          <div className="mt-8">
+            <StaffIntro />
+          </div>
         </div>
       </section>
 
       {/* お客様の声 */}
-      <section className="bg-stone-50 py-16">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+      <section className="py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <h2 className="text-center font-serif text-2xl font-bold text-stone-900">
             お客様の声
           </h2>
-          <blockquote className="mt-8 rounded-2xl bg-white p-8 shadow-sm">
-            <p className="text-stone-700">
-              「鏡を見るたびに気になっていたほうれい線が、施術を重ねるうちに気にならなくなってきました。
-              針は痛みもほとんどなく、むしろ終わったあとの肌の血色の良さに驚きます。」
-            </p>
-            <footer className="mt-4 text-sm text-stone-400">
-              40代・{siteConfig.areaName}在住 A.Kさん(サンプル・掲載許可取得後に実際のお声へ差し替え予定)
-            </footer>
-          </blockquote>
+          <div className="mt-8">
+            <TestimonialGrid />
+          </div>
         </div>
       </section>
 
       {/* アクセス */}
-      <section id="access" className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="text-center font-serif text-2xl font-bold text-stone-900">
-          アクセス
-        </h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <div className="flex aspect-video items-center justify-center rounded-2xl border border-dashed border-stone-300 bg-stone-50 text-center text-sm text-stone-400">
-            Googleマップ
-            <br />
-            (住所確定後に埋め込み予定)
-          </div>
-          <div className="flex flex-col justify-center gap-2">
-            <p className="font-semibold text-stone-900">{siteConfig.businessName}</p>
-            <p className="text-stone-600">{siteConfig.address}</p>
-            <p className="text-stone-600">{siteConfig.nearestStation}</p>
-            <p className="text-stone-600">{siteConfig.hours}</p>
-            <p className="mt-2 text-sm text-stone-500">{siteConfig.entranceNote}</p>
+      <section id="access" className="bg-stone-50 py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <h2 className="text-center font-serif text-2xl font-bold text-stone-900">
+            アクセス
+          </h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <div className="relative aspect-video overflow-hidden rounded-2xl">
+              <Image
+                src={placeholderImages.salonInterior.src}
+                alt={placeholderImages.salonInterior.alt}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute bottom-2 right-2 rounded-full bg-black/60 px-3 py-1 text-xs text-white">
+                内観イメージ(ダミー写真)
+              </div>
+            </div>
+            <div className="flex flex-col justify-center gap-2">
+              <p className="font-semibold text-stone-900">{siteConfig.businessName}</p>
+              <p className="text-stone-600">{siteConfig.address}</p>
+              <p className="text-stone-600">{siteConfig.nearestStation}</p>
+              <p className="text-stone-600">{siteConfig.hours}</p>
+              <p className="mt-2 text-sm text-stone-500">{siteConfig.entranceNote}</p>
+              <div className="mt-4 flex aspect-[4/2] items-center justify-center rounded-xl border border-dashed border-stone-300 bg-white text-center text-xs text-stone-400">
+                Googleマップ(住所確定後に埋め込み予定)
+              </div>
+            </div>
           </div>
         </div>
       </section>
