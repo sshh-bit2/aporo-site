@@ -13,43 +13,47 @@ const DISPLAY_MS = 5000;
 const FADE_MS = 1200;
 
 export default function HeroSlideshow() {
-  const [index, setIndex] = useState(0);
   const [cycle, setCycle] = useState(0);
+  const index = cycle % slides.length;
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((i) => (i + 1) % slides.length);
-      setCycle((c) => c + 1);
-    }, DISPLAY_MS);
+    const id = setInterval(() => setCycle((c) => c + 1), DISPLAY_MS);
     return () => clearInterval(id);
   }, []);
 
   return (
     <div className="relative h-full w-full overflow-hidden">
-      {slides.map((slide, i) => (
-        <div
-          key={i}
-          className="absolute inset-0 transition-opacity ease-in-out"
-          style={{
-            opacity: i === index ? 1 : 0,
-            transitionDuration: `${FADE_MS}ms`,
-          }}
-        >
+      {slides.map((slide, i) => {
+        // How many cycles ago this slide was last active, and the cycle
+        // number at which that happened. Keying the zoom wrapper on that
+        // cycle means the animation only restarts when a slide is freshly
+        // shown — not every time it fades out, which would otherwise snap
+        // the outgoing slide back to its unzoomed state mid-crossfade.
+        const stepsAgo = (index - i + slides.length) % slides.length;
+        const lastActiveCycle = cycle - stepsAgo;
+
+        return (
           <div
-            key={i === index ? cycle : "idle"}
-            className={i === index ? "h-full w-full animate-hero-kenburns" : "h-full w-full"}
+            key={i}
+            className="absolute inset-0 transition-opacity ease-in-out"
+            style={{
+              opacity: i === index ? 1 : 0,
+              transitionDuration: `${FADE_MS}ms`,
+            }}
           >
-            <Image
-              src={slide.src}
-              alt={slide.alt}
-              fill
-              priority={i === 0}
-              className="object-cover"
-              sizes="100vw"
-            />
+            <div key={lastActiveCycle} className="h-full w-full animate-hero-kenburns">
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                priority={i === 0}
+                className="object-cover"
+                sizes="100vw"
+              />
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
