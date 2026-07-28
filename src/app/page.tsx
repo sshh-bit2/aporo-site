@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import CtaButton from "@/components/CtaButton";
+import HeroSlideshow from "@/components/HeroSlideshow";
 import StaffIntro from "@/components/StaffIntro";
 import TestimonialGrid from "@/components/TestimonialGrid";
 import { menuItems, siteConfig } from "@/lib/site-config";
@@ -19,39 +20,28 @@ export default function Home() {
     <>
       {/* ヒーロー */}
       <section className="relative overflow-hidden bg-gradient-to-b from-rose-50 to-white">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 md:items-center md:py-20">
-          <div className="order-2 md:order-1">
-            <p className="text-sm font-semibold tracking-widest text-rose-800">
-              {siteConfig.subCopy}
-            </p>
-            <h1 className="mt-3 font-serif text-3xl font-bold leading-snug text-stone-900 sm:text-4xl">
-              {siteConfig.catchCopy}
-            </h1>
-            <p className="mt-4 text-stone-600">
-              たるみ・くすみ・小顔にアプローチする美容鍼灸で、鏡を見るのが楽しみになる肌へ。
-              エイジングが気になり始めた方のための、完全予約制の個室サロンです。
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <CtaButton />
-              <a
-                href={siteConfig.phoneHref}
-                className="inline-flex items-center justify-center rounded-full border border-stone-300 px-8 py-4 text-base font-semibold text-stone-700"
-              >
-                電話で相談する
-              </a>
-            </div>
-          </div>
-          <div className="order-1 mx-auto w-full max-w-sm md:order-2 md:max-w-md">
-            <div className="overflow-hidden rounded-3xl shadow-xl shadow-rose-900/10">
-              <Image
-                src={placeholderImages.homeHero.src}
-                alt={placeholderImages.homeHero.alt}
-                width={1200}
-                height={1000}
-                priority
-                className="aspect-[6/5] w-full object-cover"
-              />
-            </div>
+        <div className="h-[240px] w-full sm:h-[340px] md:h-[420px] lg:h-[480px]">
+          <HeroSlideshow />
+        </div>
+        <div className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-16">
+          <p className="text-sm font-semibold tracking-widest text-rose-800">
+            {siteConfig.subCopy}
+          </p>
+          <h1 className="mt-3 font-serif text-3xl font-bold leading-snug text-stone-900 sm:text-4xl">
+            {siteConfig.catchCopy}
+          </h1>
+          <p className="mt-4 text-stone-600">
+            たるみ・くすみ・小顔にアプローチする美容鍼灸で、鏡を見るのが楽しみになる肌へ。
+            エイジングが気になり始めた方のための、完全予約制の個室サロンです。
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <CtaButton />
+            <a
+              href={siteConfig.phoneHref}
+              className="inline-flex items-center justify-center rounded-full border border-stone-300 px-8 py-4 text-base font-semibold text-stone-700"
+            >
+              電話で相談する
+            </a>
           </div>
         </div>
       </section>
