@@ -47,7 +47,7 @@ export const menuItems = [
     title: "美容鍼灸",
     description: "たるみ・くすみ・小顔にアプローチ",
     featured: true,
-    imageKey: "facialTreatment",
+    imageKey: "menuBeautyAcupuncture",
   },
   {
     slug: "seitai",

@@ -5,17 +5,17 @@
  * 各写真はUnsplash License(商用利用可・クレジット表記不要)の範囲で使用しています。
  */
 export const placeholderImages = {
-  homeHero: {
-    src: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&q=80&auto=format&fit=crop",
-    alt: "美容鍼灸の施術イメージ(ダミー写真)",
+  menuBeautyAcupuncture: {
+    src: "/hero/top1.png",
+    alt: "美容鍼灸のイメージ(サンプル画像)",
   },
   beautyHero: {
-    src: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1200&q=80&auto=format&fit=crop",
-    alt: "顔への鍼施術のイメージ(ダミー写真)",
+    src: "/hero/top2.png",
+    alt: "痛みを抑えた独自の手技による施術(サンプル画像)",
   },
-  facialTreatment: {
-    src: "https://images.unsplash.com/photo-1731514771613-991a02407132?w=1000&q=80&auto=format&fit=crop",
-    alt: "フェイシャル施術のイメージ(ダミー写真)",
+  treatmentFlowBanner: {
+    src: "/hero/top3.png",
+    alt: "フェイシャルケアの施術風景(サンプル画像)",
   },
   bodyMassage: {
     src: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&q=80&auto=format&fit=crop",
@@ -26,7 +26,7 @@ export const placeholderImages = {
     alt: "足つぼ整体マッサージのイメージ(ダミー写真)",
   },
   staffPortrait: {
-    src: "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?w=600&q=80&auto=format&fit=crop",
+    src: "https://images.unsplash.com/photo-1622902141397-a89655353bec?w=600&q=80&auto=format&fit=crop",
     alt: "施術者イメージ(ダミー写真・実際のスタッフ写真に差し替え予定)",
   },
   salonInterior: {

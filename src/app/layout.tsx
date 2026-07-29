@@ -63,7 +63,7 @@ export default function RootLayout({
       lang="ja"
       className={`${notoSansJp.variable} ${notoSerifJp.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white pb-16 text-stone-900 md:pb-0">
+      <body className="flex min-h-full flex-col bg-white pb-14 text-stone-900 md:pb-0">
         <StructuredData data={localBusinessJsonLd} />
         <Header />
         <main className="flex-1">{children}</main>

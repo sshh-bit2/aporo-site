@@ -36,6 +36,36 @@ const steps = [
   },
 ];
 
+const skinEffects = [
+  {
+    title: "リフトアップ・小顔",
+    desc: "血行が促されむくみが取れることで、施術直後からキュッと引き締まった印象を感じやすくなります。",
+  },
+  {
+    title: "血色・くすみケア",
+    desc: "巡りを促すことで、クマやくすみが気になる肌に内側からアプローチします。",
+  },
+  {
+    title: "ハリ・エイジングケア",
+    desc: "お顔への鍼刺激により、肌のハリに関わる真皮層への働きかけが期待できます。",
+  },
+];
+
+const bodyEffects = [
+  {
+    title: "自律神経を整える",
+    desc: "全身のツボへの施術で自律神経のバランスを整え、心身のリラックスをサポートします。",
+  },
+  {
+    title: "巡り・むくみのケア",
+    desc: "血流やリンパの巡りを促し、むくみや冷えが気になる方にもおすすめです。",
+  },
+  {
+    title: "肩こり・眠りの質",
+    desc: "筋肉のこわばりをやわらげ、質の良い睡眠をサポートします。",
+  },
+];
+
 const faqs = [
   {
     q: "何回くらいで変化を感じますか?",
@@ -60,33 +90,31 @@ export default function BeautyAcupuncturePage() {
     <>
       {/* ヒーロー */}
       <section className="bg-gradient-to-b from-rose-50 to-white">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 md:items-center md:py-20">
-          <div className="order-2 md:order-1">
-            <p className="text-sm font-semibold tracking-widest text-rose-800">
-              {siteConfig.areaName}の美容鍼灸専門ケア
-            </p>
-            <h1 className="mt-3 font-serif text-3xl font-bold text-stone-900 sm:text-4xl">
-              美容鍼灸
-            </h1>
-            <p className="mt-4 text-stone-600">
-              たるみ・くすみ・小顔にアプローチする東洋医学ケア。
-              20年以上の実績を持つ施術者が、お一人おひとりの肌と体調に合わせて施術します。
-            </p>
-            <div className="mt-8">
-              <CtaButton />
-            </div>
+        <div className="h-[220px] w-full sm:h-[300px] md:h-[380px] lg:h-[440px]">
+          <div className="relative h-full w-full overflow-hidden">
+            <Image
+              src={placeholderImages.beautyHero.src}
+              alt={placeholderImages.beautyHero.alt}
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
           </div>
-          <div className="order-1 mx-auto w-full max-w-sm md:order-2 md:max-w-md">
-            <div className="overflow-hidden rounded-3xl shadow-xl shadow-rose-900/10">
-              <Image
-                src={placeholderImages.beautyHero.src}
-                alt={placeholderImages.beautyHero.alt}
-                width={1200}
-                height={1000}
-                priority
-                className="aspect-[6/5] w-full object-cover"
-              />
-            </div>
+        </div>
+        <div className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-16">
+          <p className="text-sm font-semibold tracking-widest text-rose-800">
+            {siteConfig.areaName}の美容鍼灸専門ケア
+          </p>
+          <h1 className="mt-3 font-serif text-3xl font-bold text-stone-900 sm:text-4xl">
+            美容鍼灸
+          </h1>
+          <p className="mt-4 text-stone-600">
+            たるみ・くすみ・小顔にアプローチする東洋医学ケア。
+            20年以上の実績を持つ施術者が、お一人おひとりの肌と体調に合わせて施術します。
+          </p>
+          <div className="mt-8">
+            <CtaButton />
           </div>
         </div>
       </section>
@@ -125,8 +153,8 @@ export default function BeautyAcupuncturePage() {
       {/* 施術風景バナー */}
       <section className="relative h-56 w-full overflow-hidden sm:h-72">
         <Image
-          src={placeholderImages.facialTreatment.src}
-          alt={placeholderImages.facialTreatment.alt}
+          src={placeholderImages.treatmentFlowBanner.src}
+          alt={placeholderImages.treatmentFlowBanner.alt}
           fill
           className="object-cover"
         />
@@ -158,14 +186,44 @@ export default function BeautyAcupuncturePage() {
 
       {/* 効果・症例 */}
       <section className="bg-stone-50 py-16">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <h2 className="text-center font-serif text-2xl font-bold text-stone-900">
             効果・症例
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-center text-sm text-stone-500">
+          <p className="mx-auto mt-3 max-w-2xl text-center text-stone-600">
+            美容鍼灸は、目に見えるお肌への「美肌効果」と、自律神経や血流など目に見えない「体の内側への効果」の
+            両面からアプローチすることで、本来お持ちの美しさを引き出します。
+          </p>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl bg-white p-6 sm:p-8">
+              <h3 className="font-serif text-lg font-bold text-rose-800">美肌への効果</h3>
+              <ul className="mt-4 space-y-4">
+                {skinEffects.map((e) => (
+                  <li key={e.title}>
+                    <p className="font-semibold text-stone-900">{e.title}</p>
+                    <p className="mt-1 text-sm text-stone-600">{e.desc}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl bg-white p-6 sm:p-8">
+              <h3 className="font-serif text-lg font-bold text-rose-800">体の内側への効果</h3>
+              <ul className="mt-4 space-y-4">
+                {bodyEffects.map((e) => (
+                  <li key={e.title}>
+                    <p className="font-semibold text-stone-900">{e.title}</p>
+                    <p className="mt-1 text-sm text-stone-600">{e.desc}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <p className="mx-auto mt-10 max-w-xl text-center text-sm text-stone-500">
             施術で目指す変化をイメージ化しています(本人写真は掲載しておりません)
           </p>
-          <div className="mt-8">
+          <div className="mt-4">
             <BeforeAfterStat />
           </div>
         </div>
