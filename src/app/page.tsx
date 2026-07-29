@@ -24,11 +24,12 @@ export default function Home() {
           <HeroSlideshow />
         </div>
         <div className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-16">
-          <p className="text-sm font-semibold tracking-widest text-rose-800">
-            {siteConfig.subCopy}
-          </p>
-          <h1 className="mt-3 font-serif text-3xl font-bold leading-snug text-stone-900 sm:text-4xl">
-            {siteConfig.catchCopy}
+          <h1 className="font-serif text-2xl font-bold leading-snug text-stone-900 sm:text-3xl">
+            {siteConfig.catchCopyLines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </h1>
           <p className="mt-4 text-stone-600">
             たるみ・くすみ・小顔にアプローチする美容鍼灸で、鏡を見るのが楽しみになる肌へ。

@@ -5,8 +5,10 @@
 export const siteConfig = {
   businessName: "アポロ鍼灸院", // (仮) 正式な院名に差し替えてください
   businessNameEn: "Aporo Acupuncture Clinic",
-  catchCopy: "その一針で、明日の顔がかわる。",
-  subCopy: "エイジングケア専門の美容鍼灸",
+  catchCopyLines: [
+    "デトックス効果で、本来の美しさを引き出す",
+    "エイジングケアと自律神経を整える美容針灸",
+  ],
   areaName: "◯◯", // (仮) MEO/SEO用の地域名。実際の商圏名に差し替えてください
   postalCode: "000-0000", // (仮)
   address: "◯◯県◯◯市◯◯ ◯-◯-◯ ◯◯ビル◯階", // (仮)
@@ -14,6 +16,8 @@ export const siteConfig = {
   entranceNote: "間借りサロンのため入口がわかりにくい場合があります。ご予約の方には入り方をご案内します。",
   phone: "000-0000-0000", // (仮)
   phoneHref: "tel:0000000000", // (仮)
+  email: "info@example.com", // (仮) 実際の問い合わせ用メールアドレスに差し替えてください
+  emailHref: "mailto:info@example.com", // (仮)
   lineUrl: "https://line.me/R/ti/p/@your-line-id", // (仮) LINE公式アカウントのURLに差し替えてください
   hours: "完全予約制(施術時間 10:00〜19:00)", // (仮)
   reviewScore: "4.8", // (仮) 実際の口コミ件数・評点が確定次第更新してください

@@ -3,6 +3,7 @@ import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MobileContactBar from "@/components/MobileContactBar";
 import StructuredData from "@/components/StructuredData";
 import { siteConfig } from "@/lib/site-config";
 
@@ -62,11 +63,12 @@ export default function RootLayout({
       lang="ja"
       className={`${notoSansJp.variable} ${notoSerifJp.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white text-stone-900">
+      <body className="flex min-h-full flex-col bg-white pb-16 text-stone-900 md:pb-0">
         <StructuredData data={localBusinessJsonLd} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <MobileContactBar />
       </body>
     </html>
   );
