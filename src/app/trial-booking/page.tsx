@@ -16,7 +16,7 @@ const steps = [
   },
   {
     title: "顔の鍼施術(約60分)",
-    desc: "顔への美容鍼施術で、髪の毛程の細さの針を使用し、刺激は最小限に抑えています。",
+    desc: "顔への美容鍼施術で、髪の毛程の細さの鍼を使用し、刺激は最小限に抑えています。",
   },
   {
     title: "アフターケア・次回のご案内(約5分)",
@@ -25,7 +25,7 @@ const steps = [
 ];
 
 const details = [
-  { label: "対応メニュー", value: "美容鍼灸(顔+全身)" },
+  { label: "対応メニュー", value: "美容鍼灸(顔)" },
   { label: "所要時間", value: "約75〜90分(カウンセリング含む)" },
   {
     label: "料金",
@@ -89,7 +89,7 @@ export default function TrialBookingPage() {
             ))}
           </dl>
           <p className="mt-4 text-sm text-stone-500">
-            ※価格は仮設定です。確定次第、実際の価格に更新してください。
+            ※初回限定の特別価格です。もちろん初回のみのご利用でも大丈夫です。
           </p>
         </div>
       </section>

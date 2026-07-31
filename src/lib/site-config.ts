@@ -7,14 +7,14 @@ export const siteConfig = {
   businessNameEn: "APOLO seikotsuin",
   catchCopyLines: [
     "デトックス効果で、本来の美しさを引き出す",
-    "エイジングケアと自律神経を整える美容針灸",
+    "エイジングケアと自律神経を整える美容鍼灸",
   ],
   // スマホ表示専用。左右交互の配置で見せるため、行ごとに寄せ方向を指定
   catchCopyMobileSegments: [
     { text: "デトックス効果で、", align: "left" },
     { text: "本来の美しさを引き出す", align: "right" },
     { text: "エイジングケアと", align: "left" },
-    { text: "自律神経を整える美容針灸", align: "right" },
+    { text: "自律神経を整える美容鍼灸", align: "right" },
   ] as const,
   areaName: "上大岡", // MEO/SEO用の地域名
   postalCode: "233-0001",
@@ -94,7 +94,7 @@ export const testimonials = [
     age: "40代",
     text:
       "鏡を見るたびに気になっていたほうれい線が、施術を重ねるうちに気にならなくなってきました。" +
-      "針は痛みもほとんどなく、むしろ終わったあとの肌の血色の良さに驚きます。",
+      "鍼は痛みもほとんどなく、むしろ終わったあとの肌の血色の良さに驚きます。",
     initials: "A.Kさん",
   },
   {

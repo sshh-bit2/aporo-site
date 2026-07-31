@@ -11,7 +11,7 @@ import { placeholderImages } from "@/lib/placeholder-images";
 export const metadata: Metadata = {
   title: "美容鍼灸",
   description:
-    "ほうれい線・顔のたるみ・くすみ・小顔にアプローチする美容鍼灸。髪の毛程の細さの針で刺激は最小限、" +
+    "ほうれい線・顔のたるみ・くすみ・小顔にアプローチする美容鍼灸。髪の毛程の細さの鍼で刺激は最小限、" +
     "痛みが心配な方も安心。更年期のエイジングケアにも。初回体験受付中、20年以上の実績を持つ施術者が担当します。",
 };
 
@@ -29,7 +29,7 @@ const steps = [
   },
   {
     title: "顔の鍼施術(約60分)",
-    desc: "顔への鍼施術で、髪の毛程の細さの針を使用し、刺激は最小限に抑えています。",
+    desc: "顔への鍼施術で、髪の毛程の細さの鍼を使用し、刺激は最小限に抑えています。",
   },
   {
     title: "アフターケアのご案内",
@@ -74,7 +74,7 @@ const faqs = [
   },
   {
     q: "跡やダウンタイムはありますか?",
-    a: "髪の毛程の細さの針を使用しているため、内出血や跡が残ることは稀です。まれに針あとが赤くなることがありますが、通常数十分〜数時間程度で落ち着きます。",
+    a: "髪の毛程の細さの鍼を使用しているため、内出血や跡が残ることは稀です。まれに鍼あとが赤くなることがありますが、通常数十分〜数時間程度で落ち着きます。",
   },
   {
     q: "痛みはどれくらいありますか?",
@@ -144,7 +144,7 @@ export default function BeautyAcupuncturePage() {
               痛みが心配な方へ
             </h2>
             <p className="mt-4 text-stone-600">
-              使用する針は髪の毛程の細さ。刺激は最小限に抑えていますので、
+              使用する鍼は髪の毛程の細さ。刺激は最小限に抑えていますので、
               鍼施術が初めての方やお痛みが心配な方も安心して受けていただけます。
             </p>
           </div>
@@ -259,7 +259,7 @@ export default function BeautyAcupuncturePage() {
                 <span className="text-sm font-normal text-stone-500">(税込)</span>
               </p>
               <p className="mt-3 text-sm text-stone-500">
-                ※価格は仮設定です。確定次第、実際の価格に更新してください。
+                ※初回限定の特別価格です。もちろん初回のみのご利用でも大丈夫です。
               </p>
             </div>
             <div className="rounded-2xl border border-stone-200 bg-white p-6">
