@@ -26,11 +26,23 @@ export default function Home() {
         </div>
         <div className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-16">
           <h1 className="font-serif text-2xl font-bold leading-snug text-stone-900 sm:text-3xl">
-            {siteConfig.catchCopyLines.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
+            <span className="sm:hidden">
+              {siteConfig.catchCopyMobileSegments.map((seg) => (
+                <span
+                  key={seg.text}
+                  className={`block ${seg.align === "left" ? "text-left" : "text-right"}`}
+                >
+                  {seg.text}
+                </span>
+              ))}
+            </span>
+            <span className="hidden sm:block">
+              {siteConfig.catchCopyLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </span>
           </h1>
           <p className="mt-4 text-stone-600">
             たるみ・くすみ・小顔にアプローチする美容鍼灸で、鏡を見るのが楽しみになる肌へ。

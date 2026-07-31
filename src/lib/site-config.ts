@@ -9,6 +9,13 @@ export const siteConfig = {
     "デトックス効果で、本来の美しさを引き出す",
     "エイジングケアと自律神経を整える美容針灸",
   ],
+  // スマホ表示専用。左右交互の配置で見せるため、行ごとに寄せ方向を指定
+  catchCopyMobileSegments: [
+    { text: "デトックス効果で、", align: "left" },
+    { text: "本来の美しさを引き出す", align: "right" },
+    { text: "エイジングケアと", align: "left" },
+    { text: "自律神経を整える美容針灸", align: "right" },
+  ] as const,
   areaName: "上大岡", // MEO/SEO用の地域名
   postalCode: "233-0001",
   addressRegion: "神奈川県",

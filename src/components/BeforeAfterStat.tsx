@@ -8,14 +8,26 @@ const metrics = [
 export default function BeforeAfterStat() {
   return (
     <div className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-8">
-      <div className="mb-6 flex items-center justify-between text-xs font-semibold tracking-wide text-stone-400">
+      <p className="mb-1 text-sm font-semibold text-stone-700">
+        肌印象イメージ(0〜100の目安値)
+      </p>
+      <p className="mb-6 text-xs leading-relaxed text-stone-500">
+        施術を受けた方の割合や、アンケートの回答結果を示すものではありません。
+        当院が「目指す変化の方向性」を、施術前後の印象の目安として0〜100の数値で表現した参考イメージです。
+      </p>
+      <div className="mb-2 flex items-center justify-between text-xs font-semibold tracking-wide text-stone-400">
         <span>施術前</span>
         <span>施術後(イメージ)</span>
       </div>
       <div className="space-y-5">
         {metrics.map((m) => (
           <div key={m.label}>
-            <p className="mb-1.5 text-sm text-stone-700">{m.label}</p>
+            <div className="mb-1.5 flex items-center justify-between text-sm text-stone-700">
+              <span>{m.label}</span>
+              <span className="text-xs text-stone-400">
+                {m.before} → {m.after}
+              </span>
+            </div>
             <div className="relative h-2.5 w-full overflow-hidden rounded-full bg-stone-100">
               <div
                 className="absolute inset-y-0 left-0 rounded-full bg-stone-300"
@@ -30,7 +42,8 @@ export default function BeforeAfterStat() {
         ))}
       </div>
       <p className="mt-6 text-xs leading-relaxed text-stone-400">
-        ※上記は施術によって目指す変化のイメージを表したデータ表現です。効果には個人差があり、施術効果を保証するものではありません。
+        ※上記は施術によって目指す変化のイメージを表したデータ表現であり、臨床試験やアンケート調査の結果ではありません。
+        効果には個人差があり、施術効果を保証するものではありません。
       </p>
     </div>
   );
