@@ -37,8 +37,10 @@ export const siteConfig = {
   prices: {
     trialLabel: "初回体験",
     trialPrice: 5500, // (仮) 本書site-design-spec.mdの仮価格
-    regularLabel: "通常コース",
-    regularPrice: 11000, // (仮)
+    regularFullLabel: "通常コース(全身+顔)",
+    regularFullPrice: 11000,
+    regularFaceLabel: "通常コース(顔のみ)",
+    regularFacePrice: 8500,
   },
 } as const;
 

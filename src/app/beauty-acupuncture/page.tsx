@@ -246,7 +246,7 @@ export default function BeautyAcupuncturePage() {
           <h2 className="text-center font-serif text-2xl font-bold text-stone-900">
             料金
           </h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          <div className="mt-8 grid gap-6 sm:grid-cols-3">
             <div className="rounded-2xl border-2 border-rose-800 bg-white p-6 shadow-lg shadow-rose-900/10">
               <span className="rounded-full bg-rose-800 px-3 py-1 text-xs font-semibold text-white">
                 初めての方限定
@@ -264,14 +264,20 @@ export default function BeautyAcupuncturePage() {
             </div>
             <div className="rounded-2xl border border-stone-200 bg-white p-6">
               <p className="font-serif text-lg font-bold text-stone-900">
-                {siteConfig.prices.regularLabel}
+                {siteConfig.prices.regularFullLabel}
               </p>
               <p className="mt-2 font-serif text-3xl font-bold text-stone-900">
-                ¥{siteConfig.prices.regularPrice.toLocaleString()}
+                ¥{siteConfig.prices.regularFullPrice.toLocaleString()}
                 <span className="text-sm font-normal text-stone-500">(税込)</span>
               </p>
-              <p className="mt-3 text-sm text-stone-500">
-                ※価格は仮設定です。確定次第、実際の価格に更新してください。
+            </div>
+            <div className="rounded-2xl border border-stone-200 bg-white p-6">
+              <p className="font-serif text-lg font-bold text-stone-900">
+                {siteConfig.prices.regularFaceLabel}
+              </p>
+              <p className="mt-2 font-serif text-3xl font-bold text-stone-900">
+                ¥{siteConfig.prices.regularFacePrice.toLocaleString()}
+                <span className="text-sm font-normal text-stone-500">(税込)</span>
               </p>
             </div>
           </div>
