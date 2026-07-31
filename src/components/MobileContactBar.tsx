@@ -13,11 +13,13 @@ function PhoneIcon() {
   );
 }
 
-function MailIcon() {
+function BookingIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
-      <rect x="3" y="5.5" width="18" height="13" rx="2" stroke="currentColor" strokeWidth="1.6" />
-      <path d="M4 7l8 6 8-6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="3.5" y="4.5" width="17" height="16" rx="2" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M3.5 9h17" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M8 3v3M16 3v3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M8 13.5l2.3 2.3L16 10.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -37,9 +39,30 @@ function LineIcon() {
 }
 
 const items = [
-  { key: "phone", label: "電話", href: siteConfig.phoneHref, Icon: PhoneIcon, className: "bg-rose-50 text-rose-800" },
-  { key: "mail", label: "メール", href: siteConfig.emailHref, Icon: MailIcon, className: "bg-stone-100 text-stone-600" },
-  { key: "line", label: "LINE", href: siteConfig.lineUrl, Icon: LineIcon, className: "bg-emerald-50 text-[#06C755]" },
+  {
+    key: "phone",
+    label: "電話",
+    href: siteConfig.phoneHref,
+    Icon: PhoneIcon,
+    external: false,
+    className: "bg-rose-100 text-rose-900",
+  },
+  {
+    key: "trial",
+    label: "体験予約",
+    href: siteConfig.trialBookingHref,
+    Icon: BookingIcon,
+    external: false,
+    className: "bg-rose-800 text-white",
+  },
+  {
+    key: "line",
+    label: "LINE",
+    href: siteConfig.lineUrl,
+    Icon: LineIcon,
+    external: true,
+    className: "bg-emerald-100 text-emerald-900",
+  },
 ] as const;
 
 export default function MobileContactBar() {
@@ -48,12 +71,12 @@ export default function MobileContactBar() {
       aria-label="お問い合わせ"
       className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 divide-x divide-stone-200 border-t border-stone-200 md:hidden"
     >
-      {items.map(({ key, label, href, Icon, className }) => (
+      {items.map(({ key, label, href, Icon, external, className }) => (
         <a
           key={key}
           href={href}
-          target={key === "line" ? "_blank" : undefined}
-          rel={key === "line" ? "noopener noreferrer" : undefined}
+          target={external ? "_blank" : undefined}
+          rel={external ? "noopener noreferrer" : undefined}
           className={`flex flex-col items-center justify-center gap-0 py-1.5 ${className}`}
         >
           <Icon />

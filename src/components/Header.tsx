@@ -25,14 +25,12 @@ export default function Header() {
           <Link href="/column" className="text-sm text-stone-700 hover:text-rose-800">
             コラム
           </Link>
-          <a
-            href={siteConfig.lineUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-[#06C755] px-5 py-2 text-sm font-bold text-white transition hover:opacity-90"
+          <Link
+            href={siteConfig.trialBookingHref}
+            className="rounded-full bg-rose-800 px-5 py-2 text-sm font-bold text-white transition hover:bg-rose-900"
           >
-            LINEで予約する
-          </a>
+            初回体験予約
+          </Link>
         </nav>
 
         <MobileNav />

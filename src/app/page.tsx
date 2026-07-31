@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import CtaButton from "@/components/CtaButton";
 import HeroSlideshow from "@/components/HeroSlideshow";
+import InteriorGallery from "@/components/InteriorGallery";
 import StaffIntro from "@/components/StaffIntro";
 import TestimonialGrid from "@/components/TestimonialGrid";
 import { menuItems, siteConfig } from "@/lib/site-config";
@@ -161,6 +162,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 院内風景 */}
+      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+        <h2 className="text-center font-serif text-2xl font-bold text-stone-900">
+          院内風景
+        </h2>
+        <p className="mx-auto mt-3 max-w-md text-center text-sm text-stone-500">
+          タップすると写真が拡大表示されます
+        </p>
+        <div className="mt-8">
+          <InteriorGallery />
+        </div>
+      </section>
+
       {/* アクセス */}
       <section id="access" className="bg-stone-50 py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -168,16 +182,13 @@ export default function Home() {
             アクセス
           </h2>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <div className="relative aspect-video overflow-hidden rounded-2xl">
-              <Image
-                src={placeholderImages.salonInterior.src}
-                alt={placeholderImages.salonInterior.alt}
-                fill
-                className="object-cover"
+            <div className="aspect-video overflow-hidden rounded-2xl border border-stone-200">
+              <iframe
+                title={`${siteConfig.businessName}の地図`}
+                src={`https://www.google.com/maps?q=${encodeURIComponent(siteConfig.address)}&output=embed`}
+                loading="lazy"
+                className="h-full w-full"
               />
-              <div className="absolute bottom-2 right-2 rounded-full bg-black/60 px-3 py-1 text-xs text-white">
-                内観イメージ(ダミー写真)
-              </div>
             </div>
             <div className="flex flex-col justify-center gap-2">
               <p className="font-semibold text-stone-900">{siteConfig.businessName}</p>
@@ -185,9 +196,6 @@ export default function Home() {
               <p className="text-stone-600">{siteConfig.nearestStation}</p>
               <p className="text-stone-600">{siteConfig.hours}</p>
               <p className="mt-2 text-sm text-stone-500">{siteConfig.entranceNote}</p>
-              <div className="mt-4 flex aspect-[4/2] items-center justify-center rounded-xl border border-dashed border-stone-300 bg-white text-center text-xs text-stone-400">
-                Googleマップ(住所確定後に埋め込み予定)
-              </div>
             </div>
           </div>
         </div>
@@ -198,16 +206,14 @@ export default function Home() {
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h2 className="font-serif text-2xl font-bold">まずは初回体験から</h2>
           <p className="mt-3 text-rose-50">
-            LINEなら24時間いつでも予約可能。ご不安な点も気軽にご相談ください。
+            オンラインで24時間いつでも予約受付中。ご不安な点はカウンセリングで丁寧にお伺いします。
           </p>
-          <a
-            href={siteConfig.lineUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center justify-center rounded-full bg-[#06C755] px-10 py-4 text-base font-bold text-white shadow-lg transition hover:opacity-90"
+          <Link
+            href={siteConfig.trialBookingHref}
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-base font-bold text-rose-800 shadow-lg transition hover:bg-rose-50"
           >
-            LINEで予約する
-          </a>
+            初回体験を予約する
+          </Link>
         </div>
       </section>
     </>

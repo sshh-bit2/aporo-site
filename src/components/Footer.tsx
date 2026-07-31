@@ -30,6 +30,9 @@ export default function Footer() {
             <Link href="/beauty-acupuncture" className="hover:text-rose-800">
               美容鍼灸
             </Link>
+            <Link href={siteConfig.trialBookingHref} className="hover:text-rose-800">
+              初回体験予約
+            </Link>
             <Link href="/#access" className="hover:text-rose-800">
               院紹介・アクセス
             </Link>

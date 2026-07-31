@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import CtaButton from "@/components/CtaButton";
 import FaceIllustration from "@/components/FaceIllustration";
@@ -307,14 +308,12 @@ export default function BeautyAcupuncturePage() {
           <p className="mt-3 text-rose-50">
             不安な点はカウンセリングで丁寧にお伺いします。まずはお気軽にご予約ください。
           </p>
-          <a
-            href={siteConfig.lineUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center justify-center rounded-full bg-[#06C755] px-10 py-4 text-base font-bold text-white shadow-lg transition hover:opacity-90"
+          <Link
+            href={siteConfig.trialBookingHref}
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-base font-bold text-rose-800 shadow-lg transition hover:bg-rose-50"
           >
             初回体験を予約する
-          </a>
+          </Link>
         </div>
       </section>
     </>

@@ -29,12 +29,11 @@ export const placeholderImages = {
     src: "https://images.unsplash.com/photo-1622902141397-a89655353bec?w=600&q=80&auto=format&fit=crop",
     alt: "施術者イメージ(ダミー写真・実際のスタッフ写真に差し替え予定)",
   },
-  salonInterior: {
-    src: "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=1200&q=80&auto=format&fit=crop",
-    alt: "サロン内観のイメージ(ダミー写真)",
-  },
-  spaStillLife: {
-    src: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80&auto=format&fit=crop",
-    alt: "スパ・リラクゼーションのイメージ(ダミー写真)",
-  },
 } as const;
+
+/** 実際の院内風景写真(クリックで拡大表示できるギャラリーで使用)。 */
+export const interiorPhotos = [
+  { src: "/interior/interior1.png", alt: "受付・待合スペース" },
+  { src: "/interior/interior2.png", alt: "あぽろ整骨院の入口看板" },
+  { src: "/interior/interior3.png", alt: "施術ルーム" },
+] as const;

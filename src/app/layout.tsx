@@ -22,11 +22,11 @@ const notoSerifJp = Noto_Serif_JP({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: `${siteConfig.businessName} | ${siteConfig.areaName}の美容鍼灸・鍼灸院`,
+    default: `${siteConfig.businessName} | ${siteConfig.areaName}の美容鍼灸・整骨院`,
     template: `%s | ${siteConfig.businessName}`,
   },
   description:
-    `${siteConfig.areaName}の美容鍼灸専門院。たるみ・くすみ・小顔にアプローチする東洋医学ケアで、` +
+    `${siteConfig.areaName}の整骨院「${siteConfig.businessName}」。たるみ・くすみ・小顔にアプローチする美容鍼灸で、` +
     `エイジングが気になり始めた30代後半〜50代女性を中心にサポート。肩こり・腰痛の整体、足つぼ整体、交通事故の保険施術にも対応。`,
   openGraph: {
     type: "website",
@@ -45,8 +45,9 @@ const localBusinessJsonLd = {
     "@type": "PostalAddress",
     addressCountry: "JP",
     postalCode: siteConfig.postalCode,
-    addressRegion: siteConfig.areaName,
-    streetAddress: siteConfig.address,
+    addressRegion: siteConfig.addressRegion,
+    addressLocality: siteConfig.addressLocality,
+    streetAddress: siteConfig.streetAddress,
   },
   url: siteConfig.siteUrl,
   areaServed: siteConfig.areaName,

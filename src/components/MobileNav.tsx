@@ -55,15 +55,13 @@ export default function MobileNav() {
             ))}
           </nav>
           <div className="px-6 pb-6 pt-2">
-            <a
-              href={siteConfig.lineUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={siteConfig.trialBookingHref}
               onClick={() => setOpen(false)}
-              className="block w-full rounded-full bg-[#06C755] px-6 py-3 text-center font-bold text-white"
+              className="block w-full rounded-full bg-rose-800 px-6 py-3 text-center font-bold text-white"
             >
-              LINEで予約する
-            </a>
+              初回体験予約
+            </Link>
           </div>
         </div>
       )}
